@@ -1,8 +1,8 @@
+import {config} from 'dotenv'
+config()
 import express,{json} from 'express'
 import router from './routes/route'
-import {config} from 'dotenv'
 import { HttpErrorHandler } from './controllers/homes'
-config()
 const app = express()
 const port=process.env.PORT
 
