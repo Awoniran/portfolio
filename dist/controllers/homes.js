@@ -27,10 +27,9 @@ const HttpSendMail = (req, res, next) => __awaiter(void 0, void 0, void 0, funct
     try {
         yield (0, email_1.default)(req.body);
         (0, response_1.default)(res, 200, 'email sent successfully');
-        console.log('email sent successfully');
     }
     catch (err) {
-        return (0, response_1.default)(res, 500, 'there is an error sending the email');
+        return (0, response_1.default)(res, 500, 'check your internet connection and try again');
     }
 });
 exports.HttpSendMail = HttpSendMail;
