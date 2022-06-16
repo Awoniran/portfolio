@@ -1,14 +1,14 @@
 import nodemailer from "nodemailer"
 import { Request, text } from "express";
 
-console.log(process.env.GMAIL_USER)
+// console.log(process.env.GMAIL_USER)
 
 export default class Email{
-    constructor(requestBody:Request){
-        this.name=requestBody.name;
-        this.subject=requestBody.subject;
-        this.message=requestBody.message;
-        this.from=requestBody.email;
+    constructor(public  reqBody:object){
+        // this.name=requestBody.name;
+        // this.subject=requestBody.subject;
+        // this.message=requestBody.message;
+        // this.from=requestBody.email;
     }
 
  static newTransport(){
@@ -22,9 +22,9 @@ export default class Email{
         })
 
         mailOptions:{
-            from:this.name,
-            to:process.env.GMAIL_USER,
-            text:this.message
+            // from:this.requestBody.name,
+            // to:process.env.GMAIL_USER,
+            // text:this.message
         }
     }
     async send(){

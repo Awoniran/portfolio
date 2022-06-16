@@ -13,14 +13,14 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const nodemailer_1 = __importDefault(require("nodemailer"));
-const express_1 = require("express");
-console.log(process.env.GMAIL_USER);
+// console.log(process.env.GMAIL_USER)
 class Email {
-    constructor(requestBody) {
-        this.name = requestBody.name;
-        this.subject = requestBody.subject;
-        this.message = requestBody.message;
-        this.from = requestBody.email;
+    constructor(reqBody) {
+        this.reqBody = reqBody;
+        // this.name=requestBody.name;
+        // this.subject=requestBody.subject;
+        // this.message=requestBody.message;
+        // this.from=requestBody.email;
     }
     static newTransport() {
         nodemailer_1.default.createTransport({
@@ -31,11 +31,9 @@ class Email {
             },
         });
         mailOptions: {
-            from: this.name,
-                to;
-            process.env.GMAIL_USER,
-                express_1.text;
-            this.message;
+            // from:this.requestBody.name,
+            // to:process.env.GMAIL_USER,
+            // text:this.message
         }
     }
     send() {

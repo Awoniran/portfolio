@@ -32,9 +32,10 @@ const dotenv_1 = require("dotenv");
 const homes_1 = require("./controllers/homes");
 (0, dotenv_1.config)();
 const app = (0, express_1.default)();
+const port = process.env.PORT;
 app.use((0, express_1.json)());
 app.use(route_1.default);
 app.use(homes_1.HttpErrorHandler);
-app.listen(3000, () => {
-    console.log('app listening on port 3000');
+app.listen(port, () => {
+    console.log('app listening on port ' + port);
 });
