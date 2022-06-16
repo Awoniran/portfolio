@@ -28,7 +28,14 @@ function Email(reqbody) {
             subject: `message from ${reqbody.email} : ${reqbody.subject}`,
             text: reqbody.message
         };
-        return tranporter.sendMail(mailOptions);
+        const senderOptions = {
+            to: reqbody.email,
+            from: process.env.GMAIL_USER,
+            subject: 'Thanks for Reaching out to <<Myke.Dev>>',
+            text: 'you mail has been received, I will get back to you soon'
+        };
+        yield tranporter.sendMail(mailOptions);
+        yield tranporter.sendMail(senderOptions);
     });
 }
 exports.default = Email;
