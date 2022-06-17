@@ -32,7 +32,7 @@ function Email(reqbody) {
             to: reqbody.email,
             from: process.env.GMAIL_USER,
             subject: 'Thanks for Reaching out to <<Myke.Dev>>',
-            text: 'you mail has been received, I will get back to you soon'
+            text: 'your mail has been received, I will get back to you soon'
         };
         yield tranporter.sendMail(mailOptions);
         yield tranporter.sendMail(senderOptions);
